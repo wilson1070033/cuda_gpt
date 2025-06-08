@@ -1,0 +1,3 @@
+/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles/cuda_gpt.dir
+/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles/edit_cache.dir
+/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cmake:*)",
+      "Bash(make:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(nvcc:*)",
+      "Bash(./cuda_gpt)",
+      "Bash(/mnt/d/Code/Cpp/cuda_gpt/build/cuda_gpt)",
+      "Bash(nvidia-smi:*)",
+      "Bash(./cuda_test)",
+      "Bash(python3:*)",
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(./test_chat.sh:*)"
+    ],
+    "deny": []
+  }
+}

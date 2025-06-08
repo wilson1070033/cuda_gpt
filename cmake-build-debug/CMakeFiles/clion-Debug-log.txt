@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /mnt/d/Code/Cpp/cuda_gpt -B /mnt/d/Code/Cpp/cuda_gpt/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.2s)
+-- Build files have been written to: /mnt/d/Code/Cpp/cuda_gpt/cmake-build-debug
