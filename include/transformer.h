@@ -4,6 +4,10 @@
 #include <vector>
 #include <memory>
 
+#ifdef USE_CUDNN
+#include <cudnn.h>
+#endif
+
 struct ModelConfig {
     int vocab_size = 32000;
     int d_model = 512;
@@ -20,11 +24,22 @@ private:
     Tensor gamma, beta;
     float eps;
     
+#ifdef USE_CUDNN
+    cudnnHandle_t cudnn_handle;
+    cudnnTensorDescriptor_t input_desc, output_desc, bias_desc;
+    cudnnActivationDescriptor_t activation_desc;
+#endif
+    
 public:
     LayerNorm(int d_model, float eps = 1e-5f);
+    ~LayerNorm();
     void forward(const Tensor& input, Tensor& output);
     void backward(const Tensor& grad_output, const Tensor& input, Tensor& grad_input);
     std::vector<Tensor*> get_parameters();
+    
+#ifdef USE_CUDNN
+    void forward_cudnn(const Tensor& input, Tensor& output);
+#endif
 };
 
 class FeedForward {
@@ -33,9 +48,17 @@ private:
     ModelConfig config;
     cublasHandle_t cublas_handle;
     
+#ifdef USE_CUDNN
+    cudnnHandle_t cudnn_handle;
+    cudnnTensorDescriptor_t input_desc, hidden_desc, output_desc;
+    cudnnActivationDescriptor_t gelu_desc;
+#endif
+    
 public:
     FeedForward(const ModelConfig& config, cublasHandle_t handle);
+    ~FeedForward();
     void forward(const Tensor& input, Tensor& output);
+    void forward_cudnn(const Tensor& input, Tensor& output);
     void backward(const Tensor& grad_output, const Tensor& input, Tensor& grad_input);
     std::vector<Tensor*> get_parameters();
 };

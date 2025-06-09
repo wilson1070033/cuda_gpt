@@ -259,6 +259,15 @@ CMakeFiles/cuda_gpt.dir/src/attention.cu.o : /mnt/d/Code/Cpp/cuda_gpt/src/attent
     /usr/include/c++/12/bits/stl_bvector.h \
     /usr/include/c++/12/bits/range_access.h \
     /usr/include/c++/12/bits/vector.tcc \
+    /usr/include/cudnn.h \
+    /usr/include/cudnn_version.h \
+    /usr/include/cudnn_ops_infer.h \
+    /usr/include/cudnn_ops_train.h \
+    /usr/include/cudnn_adv_infer.h \
+    /usr/include/cudnn_adv_train.h \
+    /usr/include/cudnn_cnn_infer.h \
+    /usr/include/cudnn_cnn_train.h \
+    /usr/include/cudnn_backend.h \
     /usr/include/c++/12/iostream \
     /usr/include/c++/12/ostream \
     /usr/include/c++/12/ios \

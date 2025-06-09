@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cuda_gpt.dir/cmake_device_link.o"
   "CMakeFiles/cuda_gpt.dir/main.cu.o"
   "CMakeFiles/cuda_gpt.dir/main.cu.o.d"
   "CMakeFiles/cuda_gpt.dir/src/attention.cu.o"

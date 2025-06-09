@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cuda_chat.dir/link.d"
   "CMakeFiles/cuda_chat.dir/chat.cu.o"
   "CMakeFiles/cuda_chat.dir/chat.cu.o.d"
   "CMakeFiles/cuda_chat.dir/src/attention.cu.o"

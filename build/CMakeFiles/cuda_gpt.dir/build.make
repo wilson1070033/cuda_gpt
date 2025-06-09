@@ -77,7 +77,7 @@ CMakeFiles/cuda_gpt.dir/main.cu.o: CMakeFiles/cuda_gpt.dir/includes_CUDA.rsp
 CMakeFiles/cuda_gpt.dir/main.cu.o: /mnt/d/Code/Cpp/cuda_gpt/main.cu
 CMakeFiles/cuda_gpt.dir/main.cu.o: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/cuda_gpt.dir/main.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/main.cu.o -MF CMakeFiles/cuda_gpt.dir/main.cu.o.d -x cu -rdc=true -c /mnt/d/Code/Cpp/cuda_gpt/main.cu -o CMakeFiles/cuda_gpt.dir/main.cu.o
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/main.cu.o -MF CMakeFiles/cuda_gpt.dir/main.cu.o.d -x cu -c /mnt/d/Code/Cpp/cuda_gpt/main.cu -o CMakeFiles/cuda_gpt.dir/main.cu.o
 
 CMakeFiles/cuda_gpt.dir/main.cu.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda_gpt.dir/main.cu.i"
@@ -92,7 +92,7 @@ CMakeFiles/cuda_gpt.dir/src/tensor.cu.o: CMakeFiles/cuda_gpt.dir/includes_CUDA.r
 CMakeFiles/cuda_gpt.dir/src/tensor.cu.o: /mnt/d/Code/Cpp/cuda_gpt/src/tensor.cu
 CMakeFiles/cuda_gpt.dir/src/tensor.cu.o: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CUDA object CMakeFiles/cuda_gpt.dir/src/tensor.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/tensor.cu.o -MF CMakeFiles/cuda_gpt.dir/src/tensor.cu.o.d -x cu -rdc=true -c /mnt/d/Code/Cpp/cuda_gpt/src/tensor.cu -o CMakeFiles/cuda_gpt.dir/src/tensor.cu.o
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/tensor.cu.o -MF CMakeFiles/cuda_gpt.dir/src/tensor.cu.o.d -x cu -c /mnt/d/Code/Cpp/cuda_gpt/src/tensor.cu -o CMakeFiles/cuda_gpt.dir/src/tensor.cu.o
 
 CMakeFiles/cuda_gpt.dir/src/tensor.cu.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda_gpt.dir/src/tensor.cu.i"
@@ -107,7 +107,7 @@ CMakeFiles/cuda_gpt.dir/src/attention.cu.o: CMakeFiles/cuda_gpt.dir/includes_CUD
 CMakeFiles/cuda_gpt.dir/src/attention.cu.o: /mnt/d/Code/Cpp/cuda_gpt/src/attention.cu
 CMakeFiles/cuda_gpt.dir/src/attention.cu.o: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CUDA object CMakeFiles/cuda_gpt.dir/src/attention.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/attention.cu.o -MF CMakeFiles/cuda_gpt.dir/src/attention.cu.o.d -x cu -rdc=true -c /mnt/d/Code/Cpp/cuda_gpt/src/attention.cu -o CMakeFiles/cuda_gpt.dir/src/attention.cu.o
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/attention.cu.o -MF CMakeFiles/cuda_gpt.dir/src/attention.cu.o.d -x cu -c /mnt/d/Code/Cpp/cuda_gpt/src/attention.cu -o CMakeFiles/cuda_gpt.dir/src/attention.cu.o
 
 CMakeFiles/cuda_gpt.dir/src/attention.cu.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda_gpt.dir/src/attention.cu.i"
@@ -122,7 +122,7 @@ CMakeFiles/cuda_gpt.dir/src/transformer.cu.o: CMakeFiles/cuda_gpt.dir/includes_C
 CMakeFiles/cuda_gpt.dir/src/transformer.cu.o: /mnt/d/Code/Cpp/cuda_gpt/src/transformer.cu
 CMakeFiles/cuda_gpt.dir/src/transformer.cu.o: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object CMakeFiles/cuda_gpt.dir/src/transformer.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/transformer.cu.o -MF CMakeFiles/cuda_gpt.dir/src/transformer.cu.o.d -x cu -rdc=true -c /mnt/d/Code/Cpp/cuda_gpt/src/transformer.cu -o CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/transformer.cu.o -MF CMakeFiles/cuda_gpt.dir/src/transformer.cu.o.d -x cu -c /mnt/d/Code/Cpp/cuda_gpt/src/transformer.cu -o CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
 
 CMakeFiles/cuda_gpt.dir/src/transformer.cu.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda_gpt.dir/src/transformer.cu.i"
@@ -137,7 +137,7 @@ CMakeFiles/cuda_gpt.dir/src/training.cu.o: CMakeFiles/cuda_gpt.dir/includes_CUDA
 CMakeFiles/cuda_gpt.dir/src/training.cu.o: /mnt/d/Code/Cpp/cuda_gpt/src/training.cu
 CMakeFiles/cuda_gpt.dir/src/training.cu.o: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CUDA object CMakeFiles/cuda_gpt.dir/src/training.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/training.cu.o -MF CMakeFiles/cuda_gpt.dir/src/training.cu.o.d -x cu -rdc=true -c /mnt/d/Code/Cpp/cuda_gpt/src/training.cu -o CMakeFiles/cuda_gpt.dir/src/training.cu.o
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda_gpt.dir/src/training.cu.o -MF CMakeFiles/cuda_gpt.dir/src/training.cu.o.d -x cu -c /mnt/d/Code/Cpp/cuda_gpt/src/training.cu -o CMakeFiles/cuda_gpt.dir/src/training.cu.o
 
 CMakeFiles/cuda_gpt.dir/src/training.cu.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda_gpt.dir/src/training.cu.i"
@@ -158,56 +158,17 @@ cuda_gpt_OBJECTS = \
 # External object files for target cuda_gpt
 cuda_gpt_EXTERNAL_OBJECTS =
 
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/main.cu.o
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/src/tensor.cu.o
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/src/attention.cu.o
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/src/training.cu.o
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/build.make
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libcudart.so
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libcublas.so
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libcurand.so
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/librt.a
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libcublasLt.so
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libculibos.a
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/deviceLinkLibs.rsp
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/deviceObjects1.rsp
-CMakeFiles/cuda_gpt.dir/cmake_device_link.o: CMakeFiles/cuda_gpt.dir/dlink.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CUDA device code CMakeFiles/cuda_gpt.dir/cmake_device_link.o"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cuda_gpt.dir/dlink.txt --verbose=$(VERBOSE)
-
-# Rule to build all files generated by this target.
-CMakeFiles/cuda_gpt.dir/build: CMakeFiles/cuda_gpt.dir/cmake_device_link.o
-.PHONY : CMakeFiles/cuda_gpt.dir/build
-
-# Object files for target cuda_gpt
-cuda_gpt_OBJECTS = \
-"CMakeFiles/cuda_gpt.dir/main.cu.o" \
-"CMakeFiles/cuda_gpt.dir/src/tensor.cu.o" \
-"CMakeFiles/cuda_gpt.dir/src/attention.cu.o" \
-"CMakeFiles/cuda_gpt.dir/src/transformer.cu.o" \
-"CMakeFiles/cuda_gpt.dir/src/training.cu.o"
-
-# External object files for target cuda_gpt
-cuda_gpt_EXTERNAL_OBJECTS =
-
 cuda_gpt: CMakeFiles/cuda_gpt.dir/main.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/tensor.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/attention.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/training.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/build.make
-cuda_gpt: /usr/lib/x86_64-linux-gnu/libcudart.so
-cuda_gpt: /usr/lib/x86_64-linux-gnu/libcublas.so
-cuda_gpt: /usr/lib/x86_64-linux-gnu/libcurand.so
-cuda_gpt: /usr/lib/x86_64-linux-gnu/librt.a
-cuda_gpt: /usr/lib/x86_64-linux-gnu/libcublasLt.so
-cuda_gpt: /usr/lib/x86_64-linux-gnu/libculibos.a
-cuda_gpt: CMakeFiles/cuda_gpt.dir/cmake_device_link.o
+cuda_gpt: /usr/lib/x86_64-linux-gnu/libcudnn.so
 cuda_gpt: CMakeFiles/cuda_gpt.dir/linkLibs.rsp
 cuda_gpt: CMakeFiles/cuda_gpt.dir/objects1.rsp
 cuda_gpt: CMakeFiles/cuda_gpt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CUDA executable cuda_gpt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CUDA executable cuda_gpt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cuda_gpt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

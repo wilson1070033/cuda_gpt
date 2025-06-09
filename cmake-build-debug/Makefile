@@ -130,6 +130,19 @@ cuda_gpt/fast:
 .PHONY : cuda_gpt/fast
 
 #=============================================================================
+# Target rules for targets named cuda_gpt_safe
+
+# Build rule for target.
+cuda_gpt_safe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda_gpt_safe
+.PHONY : cuda_gpt_safe
+
+# fast build rule for target.
+cuda_gpt_safe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/build
+.PHONY : cuda_gpt_safe/fast
+
+#=============================================================================
 # Target rules for targets named cuda_chat
 
 # Build rule for target.
@@ -190,12 +203,37 @@ main.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/main.cu.s
 .PHONY : main.cu.s
 
+safe_main.o: safe_main.cu.o
+.PHONY : safe_main.o
+
+# target to build an object file
+safe_main.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/safe_main.cu.o
+.PHONY : safe_main.cu.o
+
+safe_main.i: safe_main.cu.i
+.PHONY : safe_main.i
+
+# target to preprocess a source file
+safe_main.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/safe_main.cu.i
+.PHONY : safe_main.cu.i
+
+safe_main.s: safe_main.cu.s
+.PHONY : safe_main.s
+
+# target to generate assembly for a file
+safe_main.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/safe_main.cu.s
+.PHONY : safe_main.cu.s
+
 src/attention.o: src/attention.cu.o
 .PHONY : src/attention.o
 
 # target to build an object file
 src/attention.cu.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/attention.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/attention.cu.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/attention.cu.o
 .PHONY : src/attention.cu.o
 
@@ -205,6 +243,7 @@ src/attention.i: src/attention.cu.i
 # target to preprocess a source file
 src/attention.cu.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/attention.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/attention.cu.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/attention.cu.i
 .PHONY : src/attention.cu.i
 
@@ -214,6 +253,7 @@ src/attention.s: src/attention.cu.s
 # target to generate assembly for a file
 src/attention.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/attention.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/attention.cu.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/attention.cu.s
 .PHONY : src/attention.cu.s
 
@@ -223,6 +263,7 @@ src/tensor.o: src/tensor.cu.o
 # target to build an object file
 src/tensor.cu.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/tensor.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/tensor.cu.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/tensor.cu.o
 .PHONY : src/tensor.cu.o
 
@@ -232,6 +273,7 @@ src/tensor.i: src/tensor.cu.i
 # target to preprocess a source file
 src/tensor.cu.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/tensor.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/tensor.cu.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/tensor.cu.i
 .PHONY : src/tensor.cu.i
 
@@ -241,6 +283,7 @@ src/tensor.s: src/tensor.cu.s
 # target to generate assembly for a file
 src/tensor.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/tensor.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/tensor.cu.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/tensor.cu.s
 .PHONY : src/tensor.cu.s
 
@@ -250,6 +293,7 @@ src/training.o: src/training.cu.o
 # target to build an object file
 src/training.cu.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/training.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/training.cu.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/training.cu.o
 .PHONY : src/training.cu.o
 
@@ -259,6 +303,7 @@ src/training.i: src/training.cu.i
 # target to preprocess a source file
 src/training.cu.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/training.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/training.cu.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/training.cu.i
 .PHONY : src/training.cu.i
 
@@ -268,6 +313,7 @@ src/training.s: src/training.cu.s
 # target to generate assembly for a file
 src/training.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/training.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/training.cu.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/training.cu.s
 .PHONY : src/training.cu.s
 
@@ -277,6 +323,7 @@ src/transformer.o: src/transformer.cu.o
 # target to build an object file
 src/transformer.cu.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/transformer.cu.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/transformer.cu.o
 .PHONY : src/transformer.cu.o
 
@@ -286,6 +333,7 @@ src/transformer.i: src/transformer.cu.i
 # target to preprocess a source file
 src/transformer.cu.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/transformer.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/transformer.cu.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/transformer.cu.i
 .PHONY : src/transformer.cu.i
 
@@ -295,6 +343,7 @@ src/transformer.s: src/transformer.cu.s
 # target to generate assembly for a file
 src/transformer.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/src/transformer.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/src/transformer.cu.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/src/transformer.cu.s
 .PHONY : src/transformer.cu.s
 
@@ -308,12 +357,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... cuda_chat"
 	@echo "... cuda_gpt"
+	@echo "... cuda_gpt_safe"
 	@echo "... chat.o"
 	@echo "... chat.i"
 	@echo "... chat.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... safe_main.o"
+	@echo "... safe_main.i"
+	@echo "... safe_main.s"
 	@echo "... src/attention.o"
 	@echo "... src/attention.i"
 	@echo "... src/attention.s"

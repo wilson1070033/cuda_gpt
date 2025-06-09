@@ -37,10 +37,17 @@ void print_cuda_info() {
 void test_basic_operations() {
     cout << "\n=== Testing Basic Tensor Operations ===" << endl;
     
+    // Check if CUDA is available
+    int device_count;
+    cudaError_t error = cudaGetDeviceCount(&device_count);
+    bool use_cuda = (error == cudaSuccess && device_count > 0);
+    
+    cout << "Using " << (use_cuda ? "CUDA" : "CPU") << " for tensor operations" << endl;
+    
     // Test basic tensor operations
-    Tensor a({2, 3});
-    Tensor b({2, 3});
-    Tensor c({2, 3});
+    Tensor a({2, 3}, use_cuda);
+    Tensor b({2, 3}, use_cuda);
+    Tensor c({2, 3}, use_cuda);
     
     a.random_fill(0.0f, 1.0f);
     b.random_fill(0.0f, 1.0f);
@@ -49,41 +56,60 @@ void test_basic_operations() {
     
     cout << "Tensor addition test completed" << endl;
     
-    // Test matrix multiplication
-    cublasHandle_t handle;
-    cublasCreate(&handle);
-    
-    Tensor x({2, 4});
-    Tensor y({4, 3});
-    Tensor z({2, 3});
-    
-    x.random_fill(0.0f, 1.0f);
-    y.random_fill(0.0f, 1.0f);
-    
-    Tensor::matmul(x, y, z, handle);
-    
-    cout << "Matrix multiplication test completed" << endl;
-    
-    cublasDestroy(handle);
+    if (use_cuda) {
+        // Test matrix multiplication only if CUDA is available
+        cublasHandle_t handle;
+        if (cublasCreate(&handle) == CUBLAS_STATUS_SUCCESS) {
+            Tensor x({2, 4}, use_cuda);
+            Tensor y({4, 3}, use_cuda);
+            Tensor z({2, 3}, use_cuda);
+            
+            x.random_fill(0.0f, 1.0f);
+            y.random_fill(0.0f, 1.0f);
+            
+            Tensor::matmul(x, y, z, handle);
+            
+            cout << "Matrix multiplication test completed" << endl;
+            
+            cublasDestroy(handle);
+        } else {
+            cout << "cuBLAS initialization failed, skipping matrix multiplication test" << endl;
+        }
+    } else {
+        cout << "Skipping matrix multiplication test (requires CUDA)" << endl;
+    }
 }
 
-void train_mini_gpt() {
-    cout << "\n=== Training Mini GPT Model ===" << endl;
+void train_smart_gpt() {
+    cout << "\n=== Training Smart GPT Model ===" << endl;
     
-    // Small model configuration optimized for RTX 3050 Mobile
+    // Check if CUDA is available for training
+    int device_count;
+    cudaError_t error = cudaGetDeviceCount(&device_count);
+    bool use_cuda = (error == cudaSuccess && device_count > 0);
+    
+    if (!use_cuda) {
+        cout << "Note: CUDA not available. Training would be extremely slow on CPU." << endl;
+        cout << "Skipping training demonstration for now." << endl;
+        return;
+    }
+    
+    // Enhanced model configuration for intelligence
     ModelConfig model_config;
-    model_config.vocab_size = 200;      // Very small vocabulary for testing
-    model_config.d_model = 128;         // Smaller model dimension
-    model_config.n_heads = 4;           // Fewer attention heads
-    model_config.n_layers = 2;          // Fewer layers for testing
-    model_config.d_ff = 256;            // Smaller feed-forward network
-    model_config.max_seq_len = 64;      // Shorter sequence length
+    model_config.vocab_size = 2000;     // Much larger vocabulary for better understanding
+    model_config.d_model = 512;         // Larger model dimension for more capacity
+    model_config.n_heads = 8;           // More attention heads for better pattern recognition
+    model_config.n_layers = 6;          // More layers for deeper understanding
+    model_config.d_ff = 2048;           // Larger feed-forward network
+    model_config.max_seq_len = 1024;    // Longer sequences for better context
+    model_config.dropout = 0.1f;        // Add dropout for regularization
     
     TrainingConfig train_config;
-    train_config.batch_size = 2;        // Very small batch size
-    train_config.seq_length = 32;       // Very short sequences for testing
-    train_config.learning_rate = 1e-4f;
-    train_config.max_epochs = 1;        // Single epoch for testing
+    train_config.batch_size = 8;        // Larger batch size for stable gradients
+    train_config.seq_length = 512;      // Longer sequences for better context
+    train_config.learning_rate = 3e-4f; // Optimized learning rate
+    train_config.max_epochs = 20;       // More epochs for better learning
+    train_config.warmup_steps = 2000;   // More warmup for stability
     
     try {
         cout << "Creating GPT model..." << endl;
@@ -104,6 +130,34 @@ void train_mini_gpt() {
 
 void test_generation() {
     cout << "\n=== Testing Text Generation ===" << endl;
+    
+    // Check if CUDA is available
+    int device_count;
+    cudaError_t error = cudaGetDeviceCount(&device_count);
+    bool use_cuda = (error == cudaSuccess && device_count > 0);
+    
+    if (!use_cuda) {
+        cout << "Note: CUDA not available. Skipping GPU-based model test." << endl;
+        cout << "Testing basic tokenization instead..." << endl;
+        
+        try {
+            auto tokenizer = make_unique<Tokenizer>();
+            string prompt = "hello world";
+            auto prompt_tokens = tokenizer->encode(prompt);
+            
+            cout << "Input prompt: \"" << prompt << "\"" << endl;
+            cout << "Prompt tokens: ";
+            for (int token : prompt_tokens) {
+                cout << token << " ";
+            }
+            cout << endl;
+            cout << "Tokenization test completed" << endl;
+            
+        } catch (const exception& e) {
+            cerr << "Error during tokenization test: " << e.what() << endl;
+        }
+        return;
+    }
     
     ModelConfig config;
     config.vocab_size = 200;
@@ -142,17 +196,29 @@ void interactive_conversation() {
     cout << "Type 'quit' to exit the conversation." << endl;
     cout << "\nStarting conversation..." << endl;
     
-    ModelConfig config;
-    config.vocab_size = 200;
-    config.d_model = 128;
-    config.n_heads = 4;
-    config.n_layers = 2;
-    config.d_ff = 256;
-    config.max_seq_len = 64;
+    // Check if CUDA is available
+    int device_count;
+    cudaError_t error = cudaGetDeviceCount(&device_count);
+    bool use_cuda = (error == cudaSuccess && device_count > 0);
     
     try {
-        auto model = make_unique<GPTModel>(config);
+        unique_ptr<GPTModel> model = nullptr;
         auto tokenizer = make_unique<Tokenizer>();
+        
+        if (use_cuda) {
+            ModelConfig config;
+            config.vocab_size = 200;
+            config.d_model = 128;
+            config.n_heads = 4;
+            config.n_layers = 2;
+            config.d_ff = 256;
+            config.max_seq_len = 64;
+            
+            model = make_unique<GPTModel>(config);
+            cout << "Using GPU-accelerated model" << endl;
+        } else {
+            cout << "Using CPU-only tokenization mode" << endl;
+        }
         
         string input;
         while (true) {
@@ -197,7 +263,7 @@ int main() {
     test_basic_operations();
     
     // Train model
-    train_mini_gpt();
+    train_smart_gpt();
     
     // Test generation
     test_generation();

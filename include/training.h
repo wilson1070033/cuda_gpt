@@ -4,6 +4,10 @@
 #include <string>
 #include <unordered_map>
 
+#ifdef USE_CUDNN
+#include <cudnn.h>
+#endif
+
 struct TrainingConfig {
     float learning_rate = 3e-4f;
     float beta1 = 0.9f;
@@ -71,8 +75,18 @@ private:
     std::unique_ptr<Tokenizer> tokenizer;
     TrainingConfig config;
     
+#ifdef USE_CUDNN
+    cudnnHandle_t cudnn_handle;
+    cudnnTensorDescriptor_t tensor_desc;
+    cudnnActivationDescriptor_t activation_desc;
+    cudnnDropoutDescriptor_t dropout_desc;
+    void* dropout_states;
+    size_t dropout_state_size;
+#endif
+    
 public:
     Trainer(const ModelConfig& model_config, const TrainingConfig& train_config);
+    ~Trainer();
     void train();
     void evaluate();
     void save_checkpoint(const std::string& path);
@@ -81,4 +95,6 @@ public:
 private:
     float compute_loss(const Tensor& logits, const Tensor& labels);
     void compute_loss_gradient(const Tensor& logits, const Tensor& labels, Tensor& grad_logits);
+    void init_cudnn();
+    void cleanup_cudnn();
 };

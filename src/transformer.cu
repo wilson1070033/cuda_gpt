@@ -72,20 +72,49 @@ LayerNorm::LayerNorm(int d_model, float eps)
     : gamma({d_model}), beta({d_model}), eps(eps) {
     gamma.random_fill(1.0f, 0.02f);  // Initialize gamma around 1
     beta.zero();  // Initialize beta to 0
+    
+#ifdef USE_CUDNN
+    // Initialize cuDNN
+    cudnnCreate(&cudnn_handle);
+    cudnnCreateTensorDescriptor(&input_desc);
+    cudnnCreateTensorDescriptor(&output_desc);
+    cudnnCreateTensorDescriptor(&bias_desc);
+    cudnnCreateActivationDescriptor(&activation_desc);
+    
+    // Set activation descriptor for identity (no activation)
+    cudnnSetActivationDescriptor(activation_desc, CUDNN_ACTIVATION_IDENTITY, 
+                                CUDNN_NOT_PROPAGATE_NAN, 0.0);
+#endif
+}
+
+LayerNorm::~LayerNorm() {
+#ifdef USE_CUDNN
+    cudnnDestroyTensorDescriptor(input_desc);
+    cudnnDestroyTensorDescriptor(output_desc);
+    cudnnDestroyTensorDescriptor(bias_desc);
+    cudnnDestroyActivationDescriptor(activation_desc);
+    cudnnDestroy(cudnn_handle);
+#endif
 }
 
 void LayerNorm::forward(const Tensor& input, Tensor& output) {
+    // Use standard layer normalization (cuDNN version temporarily disabled)
+    // Standard layer normalization implementation
     int batch_size = input.shape[0];
     int seq_len = input.shape[1];
     int d_model = input.shape[2];
     
-    dim3 grid(batch_size, seq_len);
-    dim3 block(32);
+    // Simple layer normalization kernel call
+    int block_size = 256;
+    int grid_size = batch_size * seq_len;
     
-    layer_norm_kernel<<<grid, block>>>(input.data, output.data, gamma.data, beta.data,
-                                       batch_size, seq_len, d_model, eps);
+    layer_norm_kernel<<<grid_size, block_size>>>(
+        input.get_data(), output.get_data(), gamma.get_data(), beta.get_data(),
+        batch_size, seq_len, d_model, eps
+    );
     cudaDeviceSynchronize();
 }
+
 
 std::vector<Tensor*> LayerNorm::get_parameters() {
     return {&gamma, &beta};
@@ -105,45 +134,85 @@ FeedForward::FeedForward(const ModelConfig& config, cublasHandle_t handle)
     W2.random_fill(0.0f, scale2);
     bias1.zero();
     bias2.zero();
+    
+#ifdef USE_CUDNN
+    // Initialize cuDNN
+    cudnnCreate(&cudnn_handle);
+    cudnnCreateTensorDescriptor(&input_desc);
+    cudnnCreateTensorDescriptor(&hidden_desc);
+    cudnnCreateTensorDescriptor(&output_desc);
+    cudnnCreateActivationDescriptor(&gelu_desc);
+    
+    // Set GELU activation (approximated with swish)
+    cudnnSetActivationDescriptor(gelu_desc, CUDNN_ACTIVATION_SWISH, 
+                                CUDNN_NOT_PROPAGATE_NAN, 1.0);
+#endif
+}
+
+FeedForward::~FeedForward() {
+#ifdef USE_CUDNN
+    cudnnDestroyTensorDescriptor(input_desc);
+    cudnnDestroyTensorDescriptor(hidden_desc);
+    cudnnDestroyTensorDescriptor(output_desc);
+    cudnnDestroyActivationDescriptor(gelu_desc);
+    cudnnDestroy(cudnn_handle);
+#endif
 }
 
 void FeedForward::forward(const Tensor& input, Tensor& output) {
+    // Standard CUDA implementation without cuDNN for now
     int batch_size = input.shape[0];
     int seq_len = input.shape[1];
     int d_model = input.shape[2];
     
+    // Create intermediate tensor for hidden layer
     Tensor hidden({batch_size, seq_len, config.d_ff});
     
-    // First linear layer: input -> hidden
+    // First linear layer: input * W1 + bias1
     for (int b = 0; b < batch_size; b++) {
         Tensor input_batch({seq_len, d_model});
         Tensor hidden_batch({seq_len, config.d_ff});
         
-        input_batch.data = const_cast<float*>(input.data) + b * seq_len * d_model;
-        hidden_batch.data = hidden.data + b * seq_len * config.d_ff;
+        // Copy batch data
+        cudaMemcpy(input_batch.data, input.data + b * seq_len * d_model,
+                   seq_len * d_model * sizeof(float), cudaMemcpyDeviceToDevice);
         
+        // Matrix multiplication
         Tensor::matmul(input_batch, W1, hidden_batch, cublas_handle);
         Tensor::add(hidden_batch, bias1, hidden_batch);
+        
+        // Copy back
+        cudaMemcpy(hidden.data + b * seq_len * config.d_ff, hidden_batch.data,
+                   seq_len * config.d_ff * sizeof(float), cudaMemcpyDeviceToDevice);
     }
     
-    // Apply GELU activation
+    // Apply GELU activation (simplified with ReLU for now)
+    int total_elements = batch_size * seq_len * config.d_ff;
     int block_size = 256;
-    int grid_size = (hidden.size + block_size - 1) / block_size;
-    gelu_kernel<<<grid_size, block_size>>>(hidden.data, hidden.data, hidden.size);
-    cudaDeviceSynchronize();
+    int grid_size = (total_elements + block_size - 1) / block_size;
+    gelu_kernel<<<grid_size, block_size>>>(hidden.data, hidden.data, total_elements);
     
-    // Second linear layer: hidden -> output
+    // Second linear layer: hidden * W2 + bias2
     for (int b = 0; b < batch_size; b++) {
         Tensor hidden_batch({seq_len, config.d_ff});
         Tensor output_batch({seq_len, d_model});
         
-        hidden_batch.data = hidden.data + b * seq_len * config.d_ff;
-        output_batch.data = output.data + b * seq_len * d_model;
+        // Copy batch data
+        cudaMemcpy(hidden_batch.data, hidden.data + b * seq_len * config.d_ff,
+                   seq_len * config.d_ff * sizeof(float), cudaMemcpyDeviceToDevice);
         
+        // Matrix multiplication
         Tensor::matmul(hidden_batch, W2, output_batch, cublas_handle);
         Tensor::add(output_batch, bias2, output_batch);
+        
+        // Copy back
+        cudaMemcpy(output.data + b * seq_len * d_model, output_batch.data,
+                   seq_len * d_model * sizeof(float), cudaMemcpyDeviceToDevice);
     }
+    
+    cudaDeviceSynchronize();
 }
+
 
 std::vector<Tensor*> FeedForward::get_parameters() {
     return {&W1, &W2, &bias1, &bias2};

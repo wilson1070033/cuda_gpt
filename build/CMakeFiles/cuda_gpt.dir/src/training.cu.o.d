@@ -261,6 +261,15 @@ CMakeFiles/cuda_gpt.dir/src/training.cu.o : /mnt/d/Code/Cpp/cuda_gpt/src/trainin
     /usr/include/c++/12/bits/stl_bvector.h \
     /usr/include/c++/12/bits/range_access.h \
     /usr/include/c++/12/bits/vector.tcc \
+    /usr/include/cudnn.h \
+    /usr/include/cudnn_version.h \
+    /usr/include/cudnn_ops_infer.h \
+    /usr/include/cudnn_ops_train.h \
+    /usr/include/cudnn_adv_infer.h \
+    /usr/include/cudnn_adv_train.h \
+    /usr/include/cudnn_cnn_infer.h \
+    /usr/include/cudnn_cnn_train.h \
+    /usr/include/cudnn_backend.h \
     /usr/include/c++/12/string \
     /usr/include/c++/12/bits/char_traits.h \
     /usr/include/c++/12/cstdint \
@@ -339,4 +348,8 @@ CMakeFiles/cuda_gpt.dir/src/training.cu.o : /mnt/d/Code/Cpp/cuda_gpt/src/trainin
     /usr/include/c++/12/bits/random.tcc \
     /usr/include/c++/12/numeric \
     /usr/include/c++/12/bits/stl_numeric.h \
-    /usr/include/c++/12/pstl/glue_numeric_defs.h
+    /usr/include/c++/12/pstl/glue_numeric_defs.h \
+    /usr/include/c++/12/chrono \
+    /usr/include/c++/12/bits/chrono.h \
+    /usr/include/c++/12/ratio \
+    /usr/include/c++/12/bits/parse_numbers.h

@@ -15,7 +15,11 @@
       "Bash(python3:*)",
       "Bash(find:*)",
       "Bash(chmod:*)",
-      "Bash(./test_chat.sh:*)"
+      "Bash(./test_chat.sh:*)",
+      "Bash(grep:*)",
+      "Bash(./build/cuda_gpt)",
+      "Bash(gdb:*)",
+      "Bash(./build/cuda_gpt_safe)"
     ],
     "deny": []
   }

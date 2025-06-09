@@ -311,6 +311,15 @@ CMakeFiles/cuda_gpt.dir/main.cu.o : /mnt/d/Code/Cpp/cuda_gpt/main.cu \
     /usr/include/c++/12/bits/stl_vector.h \
     /usr/include/c++/12/bits/stl_bvector.h \
     /usr/include/c++/12/bits/vector.tcc \
+    /usr/include/cudnn.h \
+    /usr/include/cudnn_version.h \
+    /usr/include/cudnn_ops_infer.h \
+    /usr/include/cudnn_ops_train.h \
+    /usr/include/cudnn_adv_infer.h \
+    /usr/include/cudnn_adv_train.h \
+    /usr/include/cudnn_cnn_infer.h \
+    /usr/include/cudnn_cnn_train.h \
+    /usr/include/cudnn_backend.h \
     /mnt/d/Code/Cpp/cuda_gpt/include/training.h \
     /usr/include/c++/12/unordered_map \
     /usr/include/c++/12/bits/hashtable.h \

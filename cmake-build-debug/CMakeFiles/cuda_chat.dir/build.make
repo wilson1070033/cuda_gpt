@@ -164,6 +164,8 @@ cuda_chat: CMakeFiles/cuda_chat.dir/src/attention.cu.o
 cuda_chat: CMakeFiles/cuda_chat.dir/src/transformer.cu.o
 cuda_chat: CMakeFiles/cuda_chat.dir/src/training.cu.o
 cuda_chat: CMakeFiles/cuda_chat.dir/build.make
+cuda_chat: CMakeFiles/cuda_chat.dir/compiler_depend.ts
+cuda_chat: /usr/lib/x86_64-linux-gnu/libcudnn.so
 cuda_chat: CMakeFiles/cuda_chat.dir/linkLibs.rsp
 cuda_chat: CMakeFiles/cuda_chat.dir/objects1.rsp
 cuda_chat: CMakeFiles/cuda_chat.dir/link.txt

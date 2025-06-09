@@ -1,1 +1,1 @@
-/usr/lib/nvidia-cuda-toolkit/bin/g++ @CMakeFiles/cuda_chat.dir/objects1.rsp -o cuda_chat @CMakeFiles/cuda_chat.dir/linkLibs.rsp -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"
+/usr/lib/nvidia-cuda-toolkit/bin/g++ -Wl,--dependency-file=CMakeFiles/cuda_chat.dir/link.d @CMakeFiles/cuda_chat.dir/objects1.rsp -o cuda_chat @CMakeFiles/cuda_chat.dir/linkLibs.rsp -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"

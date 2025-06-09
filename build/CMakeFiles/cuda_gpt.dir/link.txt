@@ -1,1 +1,1 @@
-/usr/lib/nvidia-cuda-toolkit/bin/g++ @CMakeFiles/cuda_gpt.dir/objects1.rsp CMakeFiles/cuda_gpt.dir/cmake_device_link.o -o cuda_gpt @CMakeFiles/cuda_gpt.dir/linkLibs.rsp -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"
+/usr/lib/nvidia-cuda-toolkit/bin/g++ @CMakeFiles/cuda_gpt.dir/objects1.rsp -o cuda_gpt @CMakeFiles/cuda_gpt.dir/linkLibs.rsp -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"

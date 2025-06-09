@@ -164,6 +164,8 @@ cuda_gpt: CMakeFiles/cuda_gpt.dir/src/attention.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/transformer.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/src/training.cu.o
 cuda_gpt: CMakeFiles/cuda_gpt.dir/build.make
+cuda_gpt: CMakeFiles/cuda_gpt.dir/compiler_depend.ts
+cuda_gpt: /usr/lib/x86_64-linux-gnu/libcudnn.so
 cuda_gpt: CMakeFiles/cuda_gpt.dir/linkLibs.rsp
 cuda_gpt: CMakeFiles/cuda_gpt.dir/objects1.rsp
 cuda_gpt: CMakeFiles/cuda_gpt.dir/link.txt

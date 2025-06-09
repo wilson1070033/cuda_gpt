@@ -25,9 +25,15 @@ nvcc -I./include -std=c++17 -O3 -lcublas -lcurand main.cu src/*.cu -o cuda_gpt
 
 ### Training Data Setup
 ```bash
-# Generate conversation training data
-python3 generate_training_data.py
-# Creates data/train.txt with 260+ conversation pairs
+# Generate comprehensive intelligent training data
+python3 generate_training_data.py    # Creates original data/train.txt
+python3 create_smart_dataset.py      # Creates intelligent_train.txt with 326+ conversations
+# Creates data/intelligent_train.txt with comprehensive conversations including:
+# - Advanced science and mathematics (quantum computing, relativity, DNA)
+# - Programming and technology (AI/ML, blockchain, neural networks)
+# - Philosophy and psychology (consciousness, creativity, leadership)
+# - Daily conversation patterns and problem-solving
+# - CUDA and GPU computing topics
 ```
 
 ## Architecture Overview
@@ -57,10 +63,11 @@ python3 generate_training_data.py
 - Sinusoidal positional encodings
 
 **Training System** (`training.h/cu`):
-- Adam optimizer with bias correction
+- cuDNN-accelerated training for optimized performance
+- Adam optimizer with bias correction and learning rate scheduling
 - Cross-entropy loss with numerical stability (log-softmax)
-- Basic tokenizer with vocabulary mapping
-- DataLoader supports both file input and dummy data generation
+- Enhanced tokenizer with expanded vocabulary mapping
+- DataLoader supports multiple training data formats with auto-detection
 
 ### Memory Management Strategy
 - **Lazy transfers**: Data stays on GPU until explicitly moved to host
@@ -73,28 +80,31 @@ python3 generate_training_data.py
 The codebase uses a configuration-driven approach for different GPU memory constraints:
 
 ```cpp
-// RTX 3050 Mobile (4GB) - Current default
+// RTX 3050 Mobile (4GB) - Enhanced Smart Model
 ModelConfig config;
-config.vocab_size = 200;
-config.d_model = 128;
-config.n_heads = 4;
-config.n_layers = 2;
+config.vocab_size = 2000;     // Large vocabulary for intelligent conversations
+config.d_model = 512;         // Large model dimension for better understanding
+config.n_heads = 8;           // Multi-head attention for pattern recognition  
+config.n_layers = 6;          // Deep layers for complex reasoning
+config.d_ff = 2048;           // Large feed-forward for capacity
+config.dropout = 0.1f;        // Regularization
 
-// RTX 3060+ (6GB+) - Scaling up
-config.vocab_size = 1000;
-config.d_model = 256;
-config.n_heads = 8;
-config.n_layers = 4;
+// RTX 3060+ (8GB+) - Maximum Intelligence
+config.vocab_size = 5000;
+config.d_model = 1024;
+config.n_heads = 16;
+config.n_layers = 12;
+config.d_ff = 4096;
 ```
 
 ## Data Flow Architecture
 
 **Training Pipeline**:
-1. `DataLoader` reads from `data/train.txt` or generates dummy data
-2. `Tokenizer` converts text to integer sequences
-3. `GPTModel.forward()` processes batches through transformer layers
-4. `Trainer.compute_loss()` calculates cross-entropy loss
-5. `AdamOptimizer` updates parameters
+1. `DataLoader` reads from `data/combined_train.txt` (expanded dataset) or fallbacks
+2. `Tokenizer` converts text to integer sequences with enhanced vocabulary
+3. `GPTModel.forward()` processes batches through transformer layers with cuDNN optimization
+4. `Trainer.compute_loss()` calculates cross-entropy loss with improved numerical stability
+5. `AdamOptimizer` updates parameters with dynamic learning rate scheduling
 
 **Conversation Pipeline** (chat.cu):
 1. Pattern matching on input text (since model is untrained)
@@ -105,9 +115,16 @@ config.n_layers = 4;
 
 ### CUDA Kernel Organization
 - **Layer normalization**: Custom kernel with shared memory for mean/variance
-- **Attention masking**: Parallel causal mask application
+- **Attention masking**: Parallel causal mask application  
 - **Loss computation**: Separate kernels for forward and gradient computation
 - **Optimizer updates**: Vectorized Adam update kernels
+- **cuDNN Integration**: Optimized deep learning primitives for improved performance
+
+### cuDNN Acceleration Features
+- **Automatic Detection**: CMake automatically detects and links cuDNN when available
+- **Optimized Operations**: Enhanced activation functions, dropout, and convolution operations
+- **Memory Management**: Efficient tensor descriptor and workspace management
+- **Performance Monitoring**: Built-in timing and performance metrics during training
 
 ### Numerical Stability Measures
 - Softmax uses max subtraction for overflow prevention

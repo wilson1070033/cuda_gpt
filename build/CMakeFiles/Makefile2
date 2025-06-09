@@ -64,10 +64,14 @@ CMAKE_BINARY_DIR = /mnt/d/Code/Cpp/cuda_gpt/build
 
 # The main recursive "all" target.
 all: CMakeFiles/cuda_gpt.dir/all
+all: CMakeFiles/cuda_gpt_safe.dir/all
+all: CMakeFiles/cuda_chat.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/cuda_gpt.dir/codegen
+codegen: CMakeFiles/cuda_gpt_safe.dir/codegen
+codegen: CMakeFiles/cuda_chat.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -76,6 +80,8 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/cuda_gpt.dir/clean
+clean: CMakeFiles/cuda_gpt_safe.dir/clean
+clean: CMakeFiles/cuda_chat.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,12 +91,12 @@ clean: CMakeFiles/cuda_gpt.dir/clean
 CMakeFiles/cuda_gpt.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target cuda_gpt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target cuda_gpt"
 .PHONY : CMakeFiles/cuda_gpt.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cuda_gpt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cuda_gpt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 0
 .PHONY : CMakeFiles/cuda_gpt.dir/rule
@@ -102,13 +108,77 @@ cuda_gpt: CMakeFiles/cuda_gpt.dir/rule
 # codegen rule for target.
 CMakeFiles/cuda_gpt.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target cuda_gpt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Finished codegen for target cuda_gpt"
 .PHONY : CMakeFiles/cuda_gpt.dir/codegen
 
 # clean rule for target.
 CMakeFiles/cuda_gpt.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt.dir/build.make CMakeFiles/cuda_gpt.dir/clean
 .PHONY : CMakeFiles/cuda_gpt.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/cuda_gpt_safe.dir
+
+# All Build rule for target.
+CMakeFiles/cuda_gpt_safe.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=13,14,15,16,17,18 "Built target cuda_gpt_safe"
+.PHONY : CMakeFiles/cuda_gpt_safe.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/cuda_gpt_safe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cuda_gpt_safe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 0
+.PHONY : CMakeFiles/cuda_gpt_safe.dir/rule
+
+# Convenience name for target.
+cuda_gpt_safe: CMakeFiles/cuda_gpt_safe.dir/rule
+.PHONY : cuda_gpt_safe
+
+# codegen rule for target.
+CMakeFiles/cuda_gpt_safe.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=13,14,15,16,17,18 "Finished codegen for target cuda_gpt_safe"
+.PHONY : CMakeFiles/cuda_gpt_safe.dir/codegen
+
+# clean rule for target.
+CMakeFiles/cuda_gpt_safe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gpt_safe.dir/build.make CMakeFiles/cuda_gpt_safe.dir/clean
+.PHONY : CMakeFiles/cuda_gpt_safe.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/cuda_chat.dir
+
+# All Build rule for target.
+CMakeFiles/cuda_chat.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target cuda_chat"
+.PHONY : CMakeFiles/cuda_chat.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/cuda_chat.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cuda_chat.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles 0
+.PHONY : CMakeFiles/cuda_chat.dir/rule
+
+# Convenience name for target.
+cuda_chat: CMakeFiles/cuda_chat.dir/rule
+.PHONY : cuda_chat
+
+# codegen rule for target.
+CMakeFiles/cuda_chat.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/Code/Cpp/cuda_gpt/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target cuda_chat"
+.PHONY : CMakeFiles/cuda_chat.dir/codegen
+
+# clean rule for target.
+CMakeFiles/cuda_chat.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_chat.dir/build.make CMakeFiles/cuda_chat.dir/clean
+.PHONY : CMakeFiles/cuda_chat.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

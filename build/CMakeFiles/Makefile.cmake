@@ -15,21 +15,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CheckCXXSourceCompiles.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CheckIncludeFileCXX.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CheckLibraryExists.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Compiler/GNU.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Compiler/NVIDIA-CUDA.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Compiler/NVIDIA.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/FindCUDAToolkit.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/FindPackageMessage.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/FindThreads.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake"
-  "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Linker/GNU.cmake"
   "/home/wilson/tools/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake"
@@ -61,4 +53,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cuda_gpt.dir/DependInfo.cmake"
+  "CMakeFiles/cuda_gpt_safe.dir/DependInfo.cmake"
+  "CMakeFiles/cuda_chat.dir/DependInfo.cmake"
   )
